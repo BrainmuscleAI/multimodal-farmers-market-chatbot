@@ -1,14 +1,21 @@
 'use client'
 
-import { Product } from '@/types/products'
-import { ProductCard } from './ProductCard'
+import Image from 'next/image'
+
+interface Product {
+  id: string
+  name: string
+  price: number
+  category: string
+  description: string
+  unit: string
+}
 
 interface ProductListProps {
   products: Product[]
-  onAddToCart?: (product: Product, quantity: number) => void
 }
 
-export function ProductList({ products, onAddToCart }: ProductListProps) {
+export function ProductList({ products }: ProductListProps) {
   if (!products.length) {
     return (
       <div className="text-center p-4 text-gray-500">
@@ -18,15 +25,20 @@ export function ProductList({ products, onAddToCart }: ProductListProps) {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 my-4">
       {products.map((product) => (
-        <ProductCard
-          key={product.id}
-          {...product}
-          onAddToCart={
-            onAddToCart ? (quantity) => onAddToCart(product, quantity) : undefined
-          }
-        />
+        <div key={product.id} className="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow">
+          <h3 className="text-lg font-semibold text-gray-800">{product.name}</h3>
+          <p className="text-gray-600 text-sm mt-1">{product.description}</p>
+          <div className="mt-2 flex justify-between items-center">
+            <span className="text-green-600 font-medium">
+              ${product.price.toFixed(2)} / {product.unit}
+            </span>
+            <span className="text-sm text-gray-500 capitalize">
+              {product.category}
+            </span>
+          </div>
+        </div>
       ))}
     </div>
   )

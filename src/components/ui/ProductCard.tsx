@@ -2,25 +2,19 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
+import { Product } from '@/types/products'
 
 interface ProductCardProps {
-  name: string
-  price: number
-  description: string
-  image: string
-  unit?: string
+  product: Product
   onAddToCart?: (quantity: number) => void
 }
 
 export function ProductCard({
-  name,
-  price,
-  description,
-  image,
-  unit = 'each',
+  product,
   onAddToCart,
 }: ProductCardProps) {
   const [quantity, setQuantity] = useState(1)
+  const { name, price, description, image, unit = 'each' } = product
 
   return (
     <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
@@ -55,14 +49,12 @@ export function ProductCard({
             </button>
           </div>
         </div>
-        {onAddToCart && (
-          <button
-            onClick={() => onAddToCart(quantity)}
-            className="mt-3 w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors"
-          >
-            Add to Cart
-          </button>
-        )}
+        <button
+          onClick={() => onAddToCart?.(quantity)}
+          className="mt-3 w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors"
+        >
+          Add to Cart
+        </button>
       </div>
     </div>
   )
