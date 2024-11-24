@@ -6,7 +6,7 @@ export const products: Product[] = [
     name: 'Aguacate Hass',
     price: 35.00,
     description: 'Aguacate cremoso y de sabor rico',
-    image: '',
+    image: 'https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?auto=format&fit=crop&q=80',
     unit: 'kg',
     category: 'frutas'
   },
@@ -15,7 +15,7 @@ export const products: Product[] = [
     name: 'Jitomate Saladette',
     price: 25.00,
     description: 'Jitomate fresco para ensaladas',
-    image: '',
+    image: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&q=80',
     unit: 'kg',
     category: 'verduras'
   },
@@ -24,16 +24,16 @@ export const products: Product[] = [
     name: 'Mango Manila',
     price: 45.00,
     description: 'Mango dulce y jugoso',
-    image: '',
+    image: 'https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&q=80',
     unit: 'kg',
     category: 'frutas'
   },
   {
     id: '4',
     name: 'Chile Poblano',
-    price: 15.00,
-    description: 'Chile para chiles rellenos',
-    image: '',
+    price: 30.00,
+    description: 'Chile para rellenar o rajas',
+    image: 'https://images.unsplash.com/photo-1583119022894-919a68a3d0e3?auto=format&fit=crop&q=80',
     unit: 'kg',
     category: 'verduras'
   },
@@ -42,7 +42,7 @@ export const products: Product[] = [
     name: 'Plátano Tabasco',
     price: 20.00,
     description: 'Plátano maduro y dulce',
-    image: '',
+    image: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&q=80',
     unit: 'kg',
     category: 'frutas'
   },
@@ -50,8 +50,8 @@ export const products: Product[] = [
     id: '6',
     name: 'Cebolla Blanca',
     price: 18.00,
-    description: 'Cebolla fresca para cocinar',
-    image: '',
+    description: 'Cebolla fresca para todo uso',
+    image: 'https://images.unsplash.com/photo-1580201092675-a0a6a6cafbb1?auto=format&fit=crop&q=80',
     unit: 'kg',
     category: 'verduras'
   },
@@ -60,7 +60,7 @@ export const products: Product[] = [
     name: 'Papaya Maradol',
     price: 40.00,
     description: 'Papaya dulce y madura',
-    image: '',
+    image: 'https://images.unsplash.com/photo-1517282009859-f000ec3b26fe?auto=format&fit=crop&q=80',
     unit: 'kg',
     category: 'frutas'
   },
@@ -69,7 +69,7 @@ export const products: Product[] = [
     name: 'Cilantro Fresco',
     price: 10.00,
     description: 'Cilantro aromático',
-    image: '',
+    image: 'https://images.unsplash.com/photo-1592165799312-01bce16b2d38?auto=format&fit=crop&q=80',
     unit: 'manojo',
     category: 'hierbas'
   },
@@ -78,7 +78,7 @@ export const products: Product[] = [
     name: 'Epazote',
     price: 12.00,
     description: 'Epazote fresco para frijoles',
-    image: '',
+    image: 'https://images.unsplash.com/photo-1628679798095-11ee71244e02?auto=format&fit=crop&q=80',
     unit: 'manojo',
     category: 'hierbas'
   },
@@ -87,7 +87,7 @@ export const products: Product[] = [
     name: 'Queso Fresco',
     price: 80.00,
     description: 'Queso fresco artesanal',
-    image: '',
+    image: 'https://images.unsplash.com/photo-1634487359989-3e90c9432133?auto=format&fit=crop&q=80',
     unit: 'kg',
     category: 'lacteos'
   },
@@ -96,7 +96,7 @@ export const products: Product[] = [
     name: 'Crema Ácida',
     price: 45.00,
     description: 'Crema fresca para tacos',
-    image: '',
+    image: 'https://images.unsplash.com/photo-1588710929895-6ee7a0a4d144?auto=format&fit=crop&q=80',
     unit: 'L',
     category: 'lacteos'
   },
@@ -104,36 +104,36 @@ export const products: Product[] = [
     id: '12',
     name: 'Tortillas de Maíz',
     price: 20.00,
-    description: '',
-    image: '',
-    unit: '',
+    description: 'Tortillas frescas para tacos',
+    image: 'https://images.unsplash.com/photo-1628679798095-11ee71244e02?auto=format&fit=crop&q=80',
+    unit: 'docena',
     category: 'especialidades'
   },
   {
     id: '13',
     name: 'Mole Poblano',
     price: 120.00,
-    description: '',
-    image: '',
-    unit: '',
+    description: 'Mole poblano artesanal',
+    image: 'https://images.unsplash.com/photo-1634487359989-3e90c9432133?auto=format&fit=crop&q=80',
+    unit: 'kg',
     category: 'especialidades'
   },
   {
     id: '14',
     name: 'Frijoles Negros',
     price: 35.00,
-    description: '',
-    image: '',
-    unit: '',
+    description: 'Frijoles negros cocidos',
+    image: 'https://images.unsplash.com/photo-1588710929895-6ee7a0a4d144?auto=format&fit=crop&q=80',
+    unit: 'kg',
     category: 'legumbres'
   },
   {
     id: '15',
     name: 'Chiles Secos',
     price: 40.00,
-    description: '',
-    image: '',
-    unit: '',
+    description: 'Chiles secos para mole',
+    image: 'https://images.unsplash.com/photo-1628679798095-11ee71244e02?auto=format&fit=crop&q=80',
+    unit: 'kg',
     category: 'especialidades'
   }
 ]
