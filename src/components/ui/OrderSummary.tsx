@@ -1,38 +1,52 @@
-'use client'
+'use client';
 
-interface OrderItem {
-  name: string
-  quantity: number
-  price: number
-}
+import React from 'react';
+import { useCart } from '@/context/CartContext';
 
 interface OrderSummaryProps {
-  total: number
-  items: OrderItem[]
+  items?: any[];
 }
 
-export function OrderSummary({ total, items }: OrderSummaryProps) {
+export default function OrderSummary({ items }: OrderSummaryProps) {
+  const { items: cartItems, getTotal, removeFromCart } = useCart();
+  const displayItems = items || cartItems;
+  const total = getTotal();
+
+  if (!displayItems.length) {
+    return (
+      <div className="text-center p-4 bg-gray-50 rounded-lg">
+        El carrito está vacío
+      </div>
+    );
+  }
+
   return (
-    <div className="bg-white rounded-lg shadow p-4">
-      <h3 className="text-lg font-semibold mb-4">Order Summary</h3>
-      <div className="space-y-2">
-        {items.map((item, index) => (
-          <div key={index} className="flex justify-between">
-            <span>
-              {item.quantity}x {item.name}
-            </span>
-            <span className="text-gray-600">
-              ${(item.price * item.quantity).toFixed(2)}
-            </span>
+    <div className="bg-white rounded-lg p-4 border">
+      <h3 className="font-medium text-lg mb-4">Resumen del pedido</h3>
+      <div className="space-y-3">
+        {displayItems.map((item) => (
+          <div key={item.id} className="flex justify-between items-center">
+            <div>
+              <p className="font-medium">{item.name}</p>
+              <p className="text-sm text-gray-600">
+                {item.quantity}x ${item.price} = ${item.quantity * item.price}
+              </p>
+            </div>
+            <button
+              onClick={() => removeFromCart(item.id)}
+              className="text-red-500 hover:text-red-600"
+            >
+              Eliminar
+            </button>
           </div>
         ))}
-        <div className="border-t pt-2 mt-4">
-          <div className="flex justify-between font-semibold">
-            <span>Total</span>
-            <span>${total.toFixed(2)}</span>
-          </div>
+      </div>
+      <div className="mt-4 pt-4 border-t">
+        <div className="flex justify-between font-medium">
+          <span>Total:</span>
+          <span>${total}</span>
         </div>
       </div>
     </div>
-  )
+  );
 }

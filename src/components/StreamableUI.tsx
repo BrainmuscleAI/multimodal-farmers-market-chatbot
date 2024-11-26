@@ -7,6 +7,7 @@ import { List } from './ui/List'
 import { OrderSummary } from './ui/OrderSummary'
 import { ProductCard } from './ui/ProductCard'
 import { CategoryFilter } from './ui/CategoryFilter'
+import { Map } from './ui/Map'
 
 interface StreamableUIProps {
   content: string
@@ -43,6 +44,7 @@ const ComponentMap = {
   OrderSummary,
   ProductCard,
   CategoryFilter,
+  Map,
 }
 
 export function StreamableUI({ content }: StreamableUIProps) {

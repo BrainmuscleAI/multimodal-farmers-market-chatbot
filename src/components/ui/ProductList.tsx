@@ -1,45 +1,47 @@
-'use client'
+'use client';
 
-import Image from 'next/image'
-
-interface Product {
-  id: string
-  name: string
-  price: number
-  category: string
-  description: string
-  unit: string
-}
+import React from 'react';
+import { Product } from '@/types/products';
+import { useCart } from '@/context/CartContext';
 
 interface ProductListProps {
-  products: Product[]
+  products?: Product[];
+  category?: string;
 }
 
-export function ProductList({ products }: ProductListProps) {
-  if (!products.length) {
-    return (
-      <div className="text-center p-4 text-gray-500">
-        No products found.
-      </div>
-    )
-  }
+export default function ProductList({ products: propProducts, category }: ProductListProps) {
+  const { addToCart } = useCart();
+  const defaultProducts = [
+    { id: '1', name: 'Aguacate Hass', price: 25, unit: 'pieza', category: 'frutas' },
+    { id: '2', name: 'Jitomate', price: 15, unit: 'kg', category: 'verduras' },
+    { id: '3', name: 'Manzana', price: 20, unit: 'kg', category: 'frutas' },
+    { id: '4', name: 'Limón', price: 10, unit: 'kg', category: 'frutas' },
+  ];
+
+  const products = propProducts || defaultProducts;
+  const filteredProducts = category 
+    ? products.filter(p => p.category.toLowerCase() === category.toLowerCase())
+    : products;
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 my-4">
-      {products.map((product) => (
-        <div key={product.id} className="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow">
-          <h3 className="text-lg font-semibold text-gray-800">{product.name}</h3>
-          <p className="text-gray-600 text-sm mt-1">{product.description}</p>
-          <div className="mt-2 flex justify-between items-center">
-            <span className="text-green-600 font-medium">
-              ${product.price.toFixed(2)} / {product.unit}
-            </span>
-            <span className="text-sm text-gray-500 capitalize">
-              {product.category}
-            </span>
-          </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {filteredProducts.map((product) => (
+        <div
+          key={product.id}
+          className="p-4 border rounded-lg bg-white shadow-sm hover:shadow-md transition-shadow"
+        >
+          <h3 className="font-medium">{product.name}</h3>
+          <p className="text-gray-600">
+            ${product.price} por {product.unit}
+          </p>
+          <button
+            onClick={() => addToCart(product)}
+            className="mt-2 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
+          >
+            Agregar al carrito
+          </button>
         </div>
       ))}
     </div>
-  )
+  );
 }
